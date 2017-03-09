@@ -1,12 +1,47 @@
 html, body {
     margin: 0;
     padding: 0;
+    transition: all 1s ease; 
+    font-family: cursive !important;
 }
 
-.header {
+#cantWait {
+    background: lightseagreen;
+    color: #fff;
+    outline: 0;
+    border: 0;
+    border-radius: 2px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.word {
+    position: absolute;
     width: 100%;
-    height: 40px;
-    line-height: 40px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
     text-align: center;
-    color: #000;
+    font-size: 20px;
+}
+
+.w {
+    transition: all .5s ease;
+}
+
+.w1 {
+    opacity: 1;
+}
+
+.w2 {
+    opacity: 0;
+}
+
+.w1.move {
+    margin-top: -40px;
+    opacity: 0;
+}
+.w2.move {
+    opacity: 1;
 }
