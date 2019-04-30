@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>share test</title>
-    <meta itemprop="name" property="og:title" content="分享标题">
+    <meta property="og:title" content="分享标题">
     <meta property="og:url" content="http://m-x.pps.tv">
-    <meta itemprop="image" property="og:image" content="https://www.iqiyipic.com/ppsshow/fix/2.0/img/header_ii/logo-indexnav.png">
+    <meta property="og:image" content="https://www.iqiyipic.com/ppsshow/fix/2.0/img/header_ii/logo-indexnav.png">
     <meta name="description" itemprop="description" property="og:description" content="分享描述">
 
     <!-- <meta property=og:type content=website>
@@ -43,7 +43,8 @@
                     share_url: info.link,
                     title: info.title,
                     desc: info.desc,
-                    image_url: info.imgUrl
+                    image_url: info.imgUrl,
+                    callback: function() {}
                 });
             };
             var info = {
