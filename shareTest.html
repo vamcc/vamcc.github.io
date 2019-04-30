@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>share test</title>
+</head>
+<body>
+    <p>111</p>
+    <script>
+        var qqJsSdkUrl = '//open.mobile.qq.com/sdk/qqapi.js?_bid=152';
+
+        function loadScript(url, cb) {
+            var script = document.createElement('script');
+            script.src = url;
+            script.onload = function() {
+                cb && cb();
+            };
+            document.head.appendChild(script);
+        }
+
+        if (navigator.userAgent.indexOf('QQ/') > -1) {
+            function setShareInfo(info) {
+                mqq.data.setShareInfo({
+                    share_url: info.link,
+                    title: info.title,
+                    desc: info.desc,
+                    image_url: info.imgUrl
+                });
+            };
+            var info = {
+                link: 'http://m-x.pps.tv',
+                title: '标题标题',
+                desc: '这是一条很厉害的描述',
+                imgUrl: 'http://www.iqiyipic.com/ppsshow/fix/2.0/img/header_ii/logo-indexnav.png',
+            };
+            if (window.mqq && mqq.data && mqq.data.setShareInfo) {
+                setShareInfo(info);
+            } else {
+                loadScript(qqJsSdkUrl, function() {
+                    setShareInfo(info);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
