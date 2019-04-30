@@ -17,7 +17,7 @@
     <meta property=og:image content=https://overtrue.me/logo.png> -->
 </head>
 <body>
-    <p>113</p>
+    <p>116</p>
     <script src="//cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js"></script>
     <script>
         // 初始化eruda
@@ -42,27 +42,28 @@
                     share_url: info.link,
                     title: info.title,
                     desc: info.desc,
-                    image_url: info.imgUrl
+                    image_url: info.imgUrl,
+                    callback: function() {
+                        console.log(666);
+                    }
+                }, function() {
+                    console.log(7777);
                 });
-                mqq.ui.showShareMenu();
+                // mqq.ui.showShareMenu();
             };
             var info = {
-                link: 'http://vamcc.github.io/shareTest.html',
+                link: location.href,
                 title: '标题',
-                desc: '这是一条很厉害的描述',
+                desc: '描述',
                 imgUrl: 'http://www.iqiyipic.com/ppsshow/fix/2.0/img/header_ii/logo-indexnav.png',
             };
             if (window.mqq && mqq.data && mqq.data.setShareInfo) {
                 console.log(1);
-                setShareInfo(info, function() {
-                    console.log('ok 1');
-                });
+                setShareInfo(info);
             } else {
                 console.log(2);
                 loadScript(qqJsSdkUrl, function() {
-                    setShareInfo(info, function() {
-                        console.log('ok 2');
-                    });
+                    setShareInfo(info);
                 });
             }
         }
