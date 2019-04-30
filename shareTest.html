@@ -17,7 +17,7 @@
     <meta property=og:image content=https://overtrue.me/logo.png> -->
 </head>
 <body>
-    <p>116</p>
+    <p>126</p>
     <script src="//cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js"></script>
     <script>
         // 初始化eruda
@@ -42,12 +42,9 @@
                     share_url: info.link,
                     title: info.title,
                     desc: info.desc,
-                    image_url: info.imgUrl,
-                    callback: function() {
-                        console.log(666);
-                    }
-                }, function() {
-                    console.log(7777);
+                    image_url: info.imgUrl
+                }, function(...args) {
+                    console.log(args);
                 });
                 // mqq.ui.showShareMenu();
             };
