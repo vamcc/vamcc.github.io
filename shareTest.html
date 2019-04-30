@@ -8,6 +8,7 @@
 </head>
 <body>
     <p>111</p>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js"></script>
     <script>
         var qqJsSdkUrl = '//open.mobile.qq.com/sdk/qqapi.js?_bid=152';
 
@@ -22,6 +23,7 @@
 
         if (navigator.userAgent.indexOf('QQ/') > -1) {
             function setShareInfo(info) {
+                console.log('setShareInfo');
                 mqq.data.setShareInfo({
                     share_url: info.link,
                     title: info.title,
@@ -36,8 +38,10 @@
                 imgUrl: 'https://www.iqiyipic.com/ppsshow/fix/2.0/img/header_ii/logo-indexnav.png',
             };
             if (window.mqq && mqq.data && mqq.data.setShareInfo) {
+                console.log(1);
                 setShareInfo(info);
             } else {
+                console.log(2);
                 loadScript(qqJsSdkUrl, function() {
                     setShareInfo(info);
                 });
