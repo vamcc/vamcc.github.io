@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>share test</title>
-    <meta property="og:title" content="分享标题">
-    <meta property="og:url" content="http://m-x.pps.tv">
+    <!-- <meta property="og:title" content="分享标题">
     <meta property="og:image" content="https://www.iqiyipic.com/ppsshow/fix/2.0/img/header_ii/logo-indexnav.png">
-    <meta name="description" itemprop="description" property="og:description" content="分享描述">
+    <meta name="description" property="og:description" content="分享描述"> -->
 
     <!-- <meta property=og:type content=website>
     <meta property=og:site_name content=overtrue>
@@ -43,23 +42,26 @@
                     share_url: info.link,
                     title: info.title,
                     desc: info.desc,
-                    image_url: info.imgUrl,
-                    callback: function() {}
+                    image_url: info.imgUrl
                 });
             };
             var info = {
-                link: 'https://vamcc.github.io/shareTest.html',
-                title: '标题标题',
+                link: 'http://vamcc.github.io/shareTest.html',
+                title: '标题',
                 desc: '这是一条很厉害的描述',
-                imgUrl: 'https://www.iqiyipic.com/ppsshow/fix/2.0/img/header_ii/logo-indexnav.png',
+                imgUrl: 'http://www.iqiyipic.com/ppsshow/fix/2.0/img/header_ii/logo-indexnav.png',
             };
             if (window.mqq && mqq.data && mqq.data.setShareInfo) {
                 console.log(1);
-                setShareInfo(info);
+                setShareInfo(info, function() {
+                    console.log('ok 1');
+                });
             } else {
                 console.log(2);
                 loadScript(qqJsSdkUrl, function() {
-                    setShareInfo(info);
+                    setShareInfo(info, function() {
+                        console.log('ok 2');
+                    });
                 });
             }
         }
